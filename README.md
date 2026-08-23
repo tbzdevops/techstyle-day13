@@ -79,14 +79,14 @@ sobald eine Aenderung es wieder bricht, verschwindet der Haken. Du musst hier
 nichts von Hand pflegen — beim naechsten Push wird die Liste ueberschrieben.
 
 <!-- c50:progress -->
-**Fortschritt: 0 / 5 automatisch geprueften Kriterien erfuellt.** Stand: 2026-08-23 21:54 UTC.
+**Fortschritt: 0 / 5 Kriterien erfüllt** ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ — noch nicht geprueft.
 <!-- /c50:progress -->
 
-- [ ] AI-Workflow existiert (.github/workflows/*ai*.yml)
-- [ ] GitHub Models API oder KI-Integration im Workflow
-- [ ] AI_INTEGRATION.md Reflexionsdokument existiert
-- [ ] AI_INTEGRATION.md hat ausreichend Inhalt (mind. 100 Wörter)
-- [ ] Abschnitt zu Grenzen/Risiken von AI vorhanden
+- [ ] ⬜ AI-Workflow existiert (.github/workflows/*ai*.yml)
+- [ ] ⬜ GitHub Models API oder KI-Integration im Workflow
+- [ ] ⬜ AI_INTEGRATION.md Reflexionsdokument existiert
+- [ ] ⬜ AI_INTEGRATION.md hat ausreichend Inhalt (mind. 100 Wörter)
+- [ ] ⬜ Abschnitt zu Grenzen/Risiken von AI vorhanden
 
 Zusaetzlich manuell abgenommen (nicht automatisch geprueft):
 
