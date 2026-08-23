@@ -73,15 +73,24 @@ Kontext, Entscheidung, Konsequenzen) zu eurer AI-Integration.
 
 ## Abnahmekriterien
 
-Diese Kriterien werden bei jedem Push automatisch geprueft:
+Diese Kriterien prueft die Pipeline bei jedem Push automatisch. **Die Haken
+setzt die Pipeline selbst:** ein erfuelltes Kriterium wird abgehakt, und
+sobald eine Aenderung es wieder bricht, verschwindet der Haken. Du musst hier
+nichts von Hand pflegen — beim naechsten Push wird die Liste ueberschrieben.
 
-- [ ] AI-Workflow existiert (`.github/workflows/*ai*.yml`)
+<!-- c50:progress -->
+**Fortschritt: 0 / 5 automatisch geprueften Kriterien erfuellt.** Noch nicht geprueft.
+<!-- /c50:progress -->
+
+- [ ] AI-Workflow existiert (.github/workflows/*ai*.yml)
 - [ ] GitHub Models API oder KI-Integration im Workflow
-- [ ] `AI_INTEGRATION.md` Reflexionsdokument existiert
-- [ ] `AI_INTEGRATION.md` hat ausreichend Inhalt (mind. 100 Woerter)
+- [ ] AI_INTEGRATION.md Reflexionsdokument existiert
+- [ ] AI_INTEGRATION.md hat ausreichend Inhalt (mind. 100 Wörter)
 - [ ] Abschnitt zu Grenzen/Risiken von AI vorhanden
 
-Der ADR unter `docs/adr/` wird manuell abgenommen.
+Zusaetzlich manuell abgenommen (nicht automatisch geprueft):
+
+- Architecture Decision Record unter docs/adr/ angelegt
 
 ## Abnahmekriterien selber pruefen
 
@@ -104,7 +113,8 @@ Exit-Code 1.
 
 **In GitHub** — bei jedem Push:
 
-Der Workflow **🎓 Classroom Autograding** laeuft automatisch. Ergebnis im Tab
+Der Workflow **🎓 Classroom Autograding** laeuft automatisch und hakt die
+erfuellten Kriterien oben im README ab. Ergebnis im Tab
 **Actions** → letzter Run → Job *Abnahmekriterien pruefen*.
 
 ## Anwendung lokal starten
