@@ -1,4 +1,4 @@
-# Tag 13 — AI in DevOps
+# Tag 13 Projekt — AI in DevOps
 
 > **Projektauftrag TechStyle Online Shop.** Dieses Repository ist dein
 > Startpunkt fuer Tag 13 und enthaelt den Stand nach Tag 12.
@@ -79,7 +79,7 @@ sobald eine Aenderung es wieder bricht, verschwindet der Haken. Du musst hier
 nichts von Hand pflegen — beim naechsten Push wird die Liste ueberschrieben.
 
 <!-- c50:progress -->
-**Fortschritt: 0 / 5 Kriterien erfüllt** ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ — Stand: 2026-08-23 22:08 UTC.
+**Fortschritt: 0 / 5 Kriterien erfüllt** ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ — noch nicht geprueft.
 <!-- /c50:progress -->
 
 - [ ] ⬜ AI-Workflow existiert (.github/workflows/*ai*.yml)
