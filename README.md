@@ -1,44 +1,123 @@
-# TechStyle Online Shop
+# Tag 13 — AI in DevOps
 
-A fashion e-commerce app for developers. Built with Python Flask + SQLite.
+> **Projektauftrag TechStyle Online Shop.** Dieses Repository ist dein
+> Startpunkt fuer Tag 13 und enthaelt den Stand nach Tag 12.
 
-## Quick Start
+## Ausgangslage
+
+Die TechStyle-Entwicklungsmannschaft waechst und der Review-Prozess wird zum
+Engpass: Bei jedem Pull Request warten Aenderungen manchmal Stunden auf
+menschliche Reviewer. Gleichzeitig schleichen sich immer wieder einfache
+Fehler durch, die eigentlich automatisch erkannt werden koennten. Die
+Teamleitung moechte AI nutzen, um die Pipeline intelligenter zu machen — ohne
+die menschliche Kontrolle aufzugeben.
+
+## Ziel
+
+Erweitert die TechStyle CI/CD-Pipeline um einen AI-Schritt. Entscheidend ist
+nicht nur die technische Umsetzung, sondern auch die kritische Reflexion.
+
+## Aufgaben
+
+### 1. Waehlt eine AI-Integration (mind. eine, Bonus: mehrere)
+
+**Option A — AI Release Notes** *(Einsteiger)*
+Ein Workflow `.github/workflows/ai-release-notes.yml`, der bei Push auf
+`main` Release Notes aus dem Git-Log generiert und als Actions Summary
+ausgibt.
+
+**Option B — AI PR Review** *(Fortgeschritten)*
+Der vollstaendige AI Code Review aus der Praxis, erweitert um:
+Beschraenkung auf `*.py`, einen Hinweis *"Dieser Review ist AI-generiert und
+kein Ersatz fuer menschliches Code Review"*, sowie eine `AI_REVIEW.md` mit
+den Schwaechen des Ansatzes.
+
+**Option C — Commit Message Validator** *(Fortgeschritten)*
+Ein Workflow, der Commit-Messages gegen Conventional Commits validiert und
+bei Verstoessen einen AI-generierten Korrekturvorschlag liefert.
+
+> Der Workflow-Dateiname muss `ai` enthalten, damit die automatische Pruefung
+> ihn findet (z. B. `ai-release-notes.yml`, `ai-review.yml`).
+
+### 2. Reflexionsdokument erstellen
+
+Legt `AI_INTEGRATION.md` an, mit diesen Abschnitten:
+
+- **Implementiertes Feature** — welche Option und warum?
+- **Was die AI-Integration leistet** — konkrete beobachtete Vorteile
+- **Grenzen und Schwaechen** — was kann sie nicht, wo war sie unzuverlaessig?
+- **Security-Betrachtung** — welche Prompt-Injection-Risiken seht ihr, und
+  was habt ihr dagegen unternommen?
+- **Fazit** — wuerdet ihr das produktiv einsetzen, unter welchen Bedingungen?
+
+Das Dokument muss mindestens 100 Woerter umfassen und einen Abschnitt zu
+Grenzen bzw. Risiken enthalten.
+
+### 3. Entscheidung als ADR dokumentieren
+
+Legt unter `docs/adr/` einen Architecture Decision Record an (Status,
+Kontext, Entscheidung, Konsequenzen) zu eurer AI-Integration.
+
+> **Bonus (Spec-First):** Schreibt vorab eine kurze Spec
+> (`specs/ai-workflow.md`) und lasst die `*.yml`-Datei daraus generieren.
+
+**Erwartete Deliverables**
+
+- Mindestens ein funktionierender AI-Workflow in der TechStyle-Pipeline
+- `AI_INTEGRATION.md` mit ausgefuellter Reflexion
+- Ein ADR unter `docs/adr/` zur AI-Integration
+- Mindestens ein erfolgreicher Pipeline-Run
+
+> **Tipp:** Die GitHub Models API kann gedrosselt sein — plant einen Fallback
+> ein. Testet zuerst mit `workflow_dispatch`, bevor ihr auf `push` umstellt.
+
+## Abnahmekriterien
+
+Diese Kriterien werden bei jedem Push automatisch geprueft:
+
+- [ ] AI-Workflow existiert (`.github/workflows/*ai*.yml`)
+- [ ] GitHub Models API oder KI-Integration im Workflow
+- [ ] `AI_INTEGRATION.md` Reflexionsdokument existiert
+- [ ] `AI_INTEGRATION.md` hat ausreichend Inhalt (mind. 100 Woerter)
+- [ ] Abschnitt zu Grenzen/Risiken von AI vorhanden
+
+Der ADR unter `docs/adr/` wird manuell abgenommen.
+
+## Abnahmekriterien selber pruefen
+
+**Lokal** — jederzeit, ohne Push:
+
+```bash
+bash .github/classroom/grade.sh
+```
+
+Das Skript liest die Tagesnummer aus `.classroom50.yaml`. Du kannst sie auch
+erzwingen:
+
+```bash
+CLASSROOM_DAY=13 bash .github/classroom/grade.sh
+```
+
+Die Ausgabe listet jedes Kriterium mit ✅ oder ❌ und nennt bei jedem ❌ den
+konkreten Loesungshinweis. Sobald ein Kriterium fehlt, endet das Skript mit
+Exit-Code 1.
+
+**In GitHub** — bei jedem Push:
+
+Der Workflow **🎓 Classroom Autograding** laeuft automatisch. Ergebnis im Tab
+**Actions** → letzter Run → Job *Abnahmekriterien pruefen*.
+
+## Anwendung lokal starten
 
 ```bash
 ./run_dev.sh
 ```
 
-This creates a virtual environment, installs dependencies, seeds the database, and starts the dev server.
+Legt ein venv an, installiert die Abhaengigkeiten, seedet die Datenbank und
+startet den Dev-Server auf http://localhost:5000. Admin-Panel unter `/admin`.
 
-Open http://localhost:5000
+Hinweise zur Anwendung:
 
-### Manual setup (without the script)
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python seed_data.py
-python app.py
-```
-
-## Deploy to Production
-
-```bash
-./deploy.sh
-```
-
-Make sure `~/.ssh/techstyle_prod.pem` exists and the server IP in `deploy.sh` is correct.
-
-## Features
-
-- Product catalogue (20 items, multiple categories)
-- Session-based shopping cart
-- Checkout (no real payment)
-- Admin panel at /admin
-
-## Notes
-
-- Database is stored at `/tmp/techstyle.db`
-- Run `python seed_data.py` again to reset products (activate venv first)
-- Admin panel has no login — it's fine for now
+- Die Datenbank liegt unter `/tmp/techstyle.db`.
+- `python seed_data.py` (im aktivierten venv) setzt die Produkte zurueck.
+- Das Admin-Panel hat noch kein Login — das ist zum jetzigen Zeitpunkt so gewollt.
